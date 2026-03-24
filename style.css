@@ -1,15 +1,15 @@
 body {
     margin: 0;
-    font-family: Arial;
+    font-family: 'Segoe UI';
     background: #0d1117;
     color: white;
 }
 
-/* NAVBAR */
+/* NAV */
 header {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding: 20px 50px;
     background: #161b22;
 }
 
@@ -22,16 +22,26 @@ nav a {
 /* HERO */
 .hero {
     text-align: center;
-    padding: 100px 20px;
+    padding: 120px 20px;
 }
 
 .hero h2 {
-    font-size: 40px;
+    font-size: 50px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #58a6ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
 }
 
 /* SECTIONS */
 section {
-    padding: 50px;
+    padding: 60px 20px;
     text-align: center;
 }
 
@@ -46,21 +56,30 @@ section {
 }
 
 .card:hover {
-    transform: scale(1.05);
+    transform: translateY(-5px);
 }
 
 /* SKILLS */
-.skills span {
+.skill {
+    width: 300px;
+    margin: 20px auto;
+    text-align: left;
+}
+
+.bar {
+    background: #333;
+    height: 10px;
+    border-radius: 5px;
+}
+
+.bar div {
     background: #58a6ff;
-    padding: 10px;
-    margin: 5px;
-    display: inline-block;
+    height: 10px;
     border-radius: 5px;
 }
 
 /* FOOTER */
 footer {
-    text-align: center;
     padding: 20px;
     background: #161b22;
 }
