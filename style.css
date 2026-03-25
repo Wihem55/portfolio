@@ -29,6 +29,7 @@ nav a {
     font-size: 50px;
 }
 
+/* BUTTON */
 .btn {
     display: inline-block;
     margin-top: 20px;
@@ -39,7 +40,7 @@ nav a {
     border-radius: 5px;
 }
 
-/* SECTIONS */
+/* SECTION */
 section {
     padding: 60px 20px;
     text-align: center;
@@ -49,9 +50,10 @@ section {
 .card {
     background: #161b22;
     padding: 20px;
-    margin: 20px auto;
-    width: 300px;
+    margin: 15px;
+    width: 280px;
     border-radius: 10px;
+    display: inline-block;
     transition: 0.3s;
 }
 
@@ -59,23 +61,11 @@ section {
     transform: translateY(-5px);
 }
 
-/* SKILLS */
-.skill {
-    width: 300px;
-    margin: 20px auto;
-    text-align: left;
-}
-
-.bar {
-    background: #333;
-    height: 10px;
-    border-radius: 5px;
-}
-
-.bar div {
-    background: #58a6ff;
-    height: 10px;
-    border-radius: 5px;
+/* FLEX */
+.skills-container, .projects {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 /* FOOTER */
