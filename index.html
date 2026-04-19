@@ -1,120 +1,928 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>Wihem Portfolio</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wihem Maamer | Cybersecurity Engineer & Developer</title>
+  <meta name="description"
+    content="Portfolio of Wihem Maamer — Master's student in Advanced Cybersecurity Engineering at Polytechnic University of Bucharest. Specializing in web security, penetration testing, and full-stack development.">
+  <meta name="keywords" content="cybersecurity, penetration testing, Flutter, Python, Flask, developer, portfolio">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header>
-    <h1>Wihem</h1>
-    <nav>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#contact">Contact</a>
-    </nav>
-</header>
+  <!-- CURSOR GLOW -->
+  <div class="cursor-glow" id="cursorGlow"></div>
 
-<section class="hero">
-    <h2>Hi, I'm Wihem 👋</h2>
-    <p>Mobile Developer | Web Developer | Cybersecurity Enthusiast</p>
+  <!-- PARTICLES -->
+  <canvas id="particles-canvas"></canvas>
 
-    <!-- CV BUTTON -->
-    <a href="cv.pdf" class="btn" download>Download CV</a>
-</section>
-
-<section id="about">
-    <h2>About Me</h2>
-    <p>
-        I build mobile and web applications with focus on real-world solutions.
-        Experienced in Flutter, Firebase, and backend systems, with interest in cybersecurity.
-    </p>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-    <h2>Skills</h2>
-
-    <div class="skills-container">
-
-        <div class="card">
-            <h3>📱 Mobile</h3>
-            <p>Flutter</p>
-            <p>Firebase</p>
-        </div>
-
-        <div class="card">
-            <h3>🌐 Web</h3>
-            <p>HTML</p>
-            <p>CSS</p>
-            <p>JavaScript</p>
-            <p>PHP</p>
-        </div>
-
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-brand">
+      <div class="nav-logo">
+        <img src="logo.png" alt="WM Logo"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+        <div class="logo-fallback" style="display:none">WM</div>
+      </div>
     </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-    <h2>Projects</h2>
-
-    <div class="projects">
-
-        <div class="card">
-            <h3>Solvency Flutter App</h3>
-            <p>FinTech mobile app for client solvency and payments.</p>
-            <a href="https://github.com/Wihem55/Flutter-FinTech-app-for-client-solvency-evaluation-and-payment-management" target="_blank">View on GitHub</a>
-        </div>
-
-        <div class="card">
-            <h3>E-commerce Platform</h3>
-            <p>PHP-based online store system.</p>
-            <a href="https://github.com/Wihem55/ecommerce" target="_blank">View on GitHub</a>
-        </div>
-
-        <div class="card">
-            <h3>Rainbow Table PoC</h3>
-            <p>Password cracking proof of concept (Python).</p>
-            <a href="https://github.com/Wihem55/RainbowTablePoC" target="_blank">View on GitHub</a>
-        </div>
-
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero" id="nav-hero">Home</a></li>
+      <li><a href="#about" id="nav-about">About</a></li>
+      <li><a href="#skills" id="nav-skills">Skills</a></li>
+      <li><a href="#experience" id="nav-experience">Experience</a></li>
+      <li><a href="#projects" id="nav-projects">Projects</a></li>
+      <li><a href="#education" id="nav-education">Education</a></li>
+      <li><a href="#certifications" id="nav-certifications">Certs</a></li>
+      <li><a href="#contact" id="nav-contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="cv.pdf" download class="btn-cv" id="download-cv">
+        <i class="fas fa-download"></i> Download CV
+      </a>
     </div>
-</section>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-<!-- CERTIFICATIONS -->
-<section id="certifications">
-    <h2>Certifications</h2>
-
-    <div class="projects">
-
-        <div class="card">
-            <p>Agile & Scrum</p>
-            <!-- IMAGE -->
-            <img src="images/cert1.png" width="100%">
-        </div>
-
-        <div class="card">
-            <p>Flutter Development</p>
-            <img src="images/cert2.png" width="100%">
-        </div>
-
+  <!-- ==================== HERO ==================== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>Available for Internship & Entry-Level Roles</span>
+      </div>
+      <h1 class="hero-title">
+        Hi, I'm <span class="gradient-text">Wihem Maamer</span>
+      </h1>
+      <div class="hero-subtitle">
+        <span class="typed-prefix">I'm a </span>
+        <span class="typed-text" id="typedText"></span>
+        <span class="typed-cursor">|</span>
+      </div>
+      <p class="hero-desc">
+        Master's student in <strong>Advanced Cybersecurity Engineering</strong> at Polytechnic University of Bucharest.
+        Passionate about web security, penetration testing, mobile development, and building AI-powered security tools.
+      </p>
+      <div class="hero-tags">
+        <span class="tag"><i class="fab fa-python"></i> Python</span>
+        <span class="tag"><i class="fas fa-shield-halved"></i> Cybersecurity</span>
+        <span class="tag"><i class="fab fa-flutter"></i> Flutter</span>
+        <span class="tag"><i class="fas fa-bug"></i> Pentesting</span>
+        <span class="tag"><i class="fas fa-flask"></i> Flask</span>
+      </div>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn-primary" id="hero-projects-btn">
+          <i class="fas fa-code"></i> View My Work
+        </a>
+        <a href="#contact" class="btn-secondary" id="hero-contact-btn">
+          <i class="fas fa-paper-plane"></i> Get In Touch
+        </a>
+      </div>
+      <div class="hero-socials">
+        <a href="https://github.com/Wihem55" target="_blank" title="GitHub" id="social-github"><i
+            class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/wihem-maamer/" target="_blank" title="LinkedIn" id="social-linkedin"><i
+            class="fab fa-linkedin-in"></i></a>
+        <a href="mailto:wihemdonix@gmail.com" title="Email" id="social-email"><i class="fas fa-envelope"></i></a>
+      </div>
     </div>
-</section>
+    <div class="hero-visual">
+      <div class="profile-ring">
+        <div class="profile-photo">
+          <img src="profile.png" alt="Wihem Maamer"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="photo-fallback" style="display:none">WM</div>
+        </div>
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="ring ring-3"></div>
+      </div>
+      <div class="floating-badge fb-1"><i class="fas fa-shield-alt"></i> Security</div>
+      <div class="floating-badge fb-2"><i class="fas fa-code"></i> Dev</div>
+      <div class="floating-badge fb-3"><i class="fas fa-brain"></i> AI/ML</div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-dot"></div>
+      <span>Scroll Down</span>
+    </div>
+  </section>
 
-<!-- CONTACT -->
-<section id="contact">
-    <h2>Contact</h2>
+  <!-- ==================== ABOUT ==================== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <p class="section-label">Who I Am</p>
+        <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text" data-animate>
+          <p>
+            I'm a <strong>Master's student in Advanced Cybersecurity Engineering</strong> at the Polytechnic University
+            of Bucharest, with a strong background in both security and software development. My thesis focuses on
+            building an <strong>AI-Powered Phishing Detection, Scanning and Simulation Platform</strong>.
+          </p>
+          <p>
+            I have experience in web and mobile development, cybersecurity tools, phishing detection, scanning, and
+            simulation using <strong>Python</strong> and <strong>Flask</strong>. Fluent in Arabic, French, and English,
+            I thrive in multicultural environments and seek internship and entry-level opportunities across Europe.
+          </p>
+          <div class="about-info">
+            <div class="info-item"><i class="fas fa-map-marker-alt"></i> <span><strong>Location:</strong> Bucharest,
+                Romania</span></div>
+            <div class="info-item"><i class="fas fa-graduation-cap"></i> <span><strong>Degree:</strong> M.Sc.
+                Cybersecurity Engineering</span></div>
+            <div class="info-item"><i class="fas fa-globe"></i> <span><strong>Nationality:</strong> Tunisian</span>
+            </div>
+            <div class="info-item"><i class="fas fa-envelope"></i> <span><strong>Email:</strong>
+                wihemdonix@gmail.com</span></div>
+            <div class="info-item"><i class="fas fa-phone"></i> <span><strong>Phone:</strong> +40 734 568 826</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-stats" data-animate>
+          <div class="stat-grid">
+            <div class="stat-card">
+              <div class="stat-icon"><i class="fas fa-code-branch"></i></div>
+              <div class="stat-number" data-count="10">0</div>
+              <div class="stat-label">GitHub Repos</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon"><i class="fas fa-briefcase"></i></div>
+              <div class="stat-number" data-count="4">0</div>
+              <div class="stat-label">Work Experiences</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon"><i class="fas fa-certificate"></i></div>
+              <div class="stat-number" data-count="12">0</div>
+              <div class="stat-label">Certifications</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon"><i class="fas fa-trophy"></i></div>
+              <div class="stat-number" data-count="3">0</div>
+              <div class="stat-label">Awards Won</div>
+            </div>
+          </div>
+          <div class="soft-skills">
+            <h4>Soft Skills</h4>
+            <div class="soft-tags">
+              <span>Teamwork</span>
+              <span>Communication</span>
+              <span>Problem-Solving</span>
+              <span>Adaptability</span>
+              <span>Time Management</span>
+              <span>Analytical Thinking</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <a href="https://github.com/Wihem55" target="_blank" class="btn">GitHub</a>
+  <!-- ==================== SKILLS ==================== -->
+  <section class="section section-alt" id="skills">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <p class="section-label">What I Know</p>
+        <h2 class="section-title">Technical <span class="gradient-text">Skills</span></h2>
+      </div>
+      <div class="skills-grid" data-animate>
 
-</section>
+        <div class="skill-category">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon"><i class="fas fa-terminal"></i></div>
+            <h3>Programming Languages</h3>
+          </div>
+          <div class="skill-pills">
+            <span class="pill pill-blue">Python</span>
+            <span class="pill pill-orange">Java</span>
+            <span class="pill pill-purple">PHP</span>
+            <span class="pill pill-yellow">JavaScript</span>
+            <span class="pill pill-gray">C</span>
+            <span class="pill pill-green">C#</span>
 
-<footer>
-    <p>© 2026 Wihem</p>
-</footer>
+            <span class="pill pill-blue">Dart</span>
+          </div>
+        </div>
 
+        <div class="skill-category">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon"><i class="fas fa-layer-group"></i></div>
+            <h3>Frameworks & Technologies</h3>
+          </div>
+          <div class="skill-pills">
+            <span class="pill pill-blue">Flutter</span>
+            <span class="pill pill-green">Flask</span>
+            <span class="pill pill-orange">HTML5</span>
+            <span class="pill pill-purple">Bootstrap</span>
+            <span class="pill pill-red">Spring Boot</span>
+            <span class="pill pill-blue">CSS3</span>
+            <span class="pill pill-yellow">NestJS</span>
+
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon"><i class="fas fa-database"></i></div>
+            <h3>Databases</h3>
+          </div>
+          <div class="skill-pills">
+            <span class="pill pill-blue">SQL</span>
+            <span class="pill pill-orange">MySQL</span>
+            <span class="pill pill-green">MongoDB</span>
+            <span class="pill pill-yellow">Firebase</span>
+            <span class="pill pill-purple">PL/SQL</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon"><i class="fas fa-shield-alt"></i></div>
+            <h3>Cybersecurity Tools</h3>
+          </div>
+          <div class="skill-pills">
+            <span class="pill pill-red">Kali Linux</span>
+            <span class="pill pill-orange">Wireshark</span>
+            <span class="pill pill-purple">Burp Suite</span>
+            <span class="pill pill-blue">Nmap</span>
+            <span class="pill pill-green">Metasploit</span>
+            <span class="pill pill-gray">Ghidra</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon"><i class="fas fa-tools"></i></div>
+            <h3>Dev Tools & Platforms</h3>
+          </div>
+          <div class="skill-pills">
+            <span class="pill pill-gray">Git</span>
+            <span class="pill pill-blue">GitHub</span>
+            <span class="pill pill-green">Agile/Scrum</span>
+            <span class="pill pill-orange">Node-RED</span>
+            <span class="pill pill-purple">Cisco Packet Tracer</span>
+            <span class="pill pill-yellow">Odoo ERP</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon"><i class="fas fa-language"></i></div>
+            <h3>Languages</h3>
+          </div>
+          <div class="skill-pills">
+            <span class="pill pill-blue">Arabic — Native</span>
+            <span class="pill pill-green">English — Fluent</span>
+            <span class="pill pill-purple">French — Fluent</span>
+            <span class="pill pill-orange">Turkish — Beginner</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== EXPERIENCE ==================== -->
+  <section class="section" id="experience">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <p class="section-label">Work History</p>
+        <h2 class="section-title">Professional <span class="gradient-text">Experience</span></h2>
+      </div>
+      <div class="timeline" data-animate>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-meta">
+              <span class="timeline-company">
+                <a href="https://www.telusdigital.com/about/locations/romania" target="_blank">SC Call Point New Europe
+                  SRL – Telus Digital</a>
+              </span>
+              <span class="timeline-location"><i class="fas fa-map-marker-alt"></i> Bucharest, Romania</span>
+            </div>
+            <h3 class="timeline-role">Customer Support Ambassador – Airbnb French Team</h3>
+            <ul class="timeline-bullets">
+              <li>Supported French-speaking customers with account, booking, and service-related issues</li>
+              <li>Helped improve team communication and represented team needs in a multicultural work environment</li>
+              <li>Strengthened communication, problem-solving, and customer incident handling skills</li>
+            </ul>
+            <div class="timeline-tags">
+              <span>Customer Support</span>
+              <span>French</span>
+              <span>Multicultural</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-meta">
+              <span class="timeline-company">
+                <a href="https://www.smartecouniverse.com" target="_blank">SmartEco</a>
+              </span>
+              <span class="timeline-location"><i class="fas fa-map-marker-alt"></i> Tunis, Tunisia</span>
+            </div>
+            <h3 class="timeline-role">Mobile Application Developer Intern</h3>
+            <ul class="timeline-bullets">
+              <li>Contributed to the development of the <strong>PayFlex mobile application</strong> for solvency
+                evaluation and staggered payment analysis</li>
+              <li>Participated in feature development, usability improvements, and application testing</li>
+              <li>Assisted in debugging and improving application performance</li>
+              <li>Collaborated with team members on application logic and user experience</li>
+            </ul>
+            <div class="timeline-tags">
+              <span>Flutter</span>
+              <span>Firebase</span>
+              <span>Mobile Dev</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-meta">
+              <span class="timeline-company">
+                <a href="https://itgustgroup.com" target="_blank">IT GUST</a>
+              </span>
+              <span class="timeline-location"><i class="fas fa-map-marker-alt"></i> Tunis, Tunisia</span>
+            </div>
+            <h3 class="timeline-role">Intern in Application Development</h3>
+            <ul class="timeline-bullets">
+              <li>Developed features for the <strong>Med For You mobile application</strong> using
+                <strong>Flutter</strong> and <strong>NestJS</strong></li>
+              <li>Assisted in implementing backend and frontend functionalities for user-facing features</li>
+              <li>Participated in testing, debugging, and improving application performance</li>
+            </ul>
+            <div class="timeline-tags">
+              <span>Flutter</span>
+              <span>NestJS</span>
+              <span>Backend</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-meta">
+              <span class="timeline-company">Freelance / Remote</span>
+              <span class="timeline-location"><i class="fas fa-map-marker-alt"></i> Remote, Tunisia</span>
+            </div>
+            <h3 class="timeline-role">Freelance Content Reviewer</h3>
+            <ul class="timeline-bullets">
+              <li>Reviewed and moderated online content to ensure compliance with platform policies</li>
+              <li>Identified and reported inappropriate or harmful content</li>
+              <li>Maintained high accuracy and consistency while working independently</li>
+              <li>Developed strong attention to detail and analytical decision-making skills</li>
+            </ul>
+            <div class="timeline-tags">
+              <span>Content Moderation</span>
+              <span>Remote</span>
+              <span>Analytical</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PROJECTS ==================== -->
+  <section class="section section-alt" id="projects">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <p class="section-label">What I've Built</p>
+        <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+      </div>
+
+      <div class="projects-filter" data-animate>
+        <button class="filter-btn active" data-filter="all" id="filter-all">All</button>
+        <button class="filter-btn" data-filter="security" id="filter-security">Security</button>
+        <button class="filter-btn" data-filter="mobile" id="filter-mobile">Mobile</button>
+        <button class="filter-btn" data-filter="web" id="filter-web">Web</button>
+        <button class="filter-btn" data-filter="backend" id="filter-backend">Backend</button>
+      </div>
+
+      <div class="projects-grid" data-animate>
+
+        <!-- Project 1 -->
+        <div class="project-card featured" data-category="security" id="proj-phishing">
+          <div class="project-featured-badge"><i class="fas fa-star"></i> Featured</div>
+          <div class="project-header">
+            <div class="project-icon" style="background: linear-gradient(135deg, #667eea, #764ba2)">
+              <i class="fas fa-shield-virus"></i>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Wihem55" target="_blank" title="GitHub" id="github-phishing"><i
+                  class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">AI-Powered Phishing Detection, Scanning & Simulation Platform</h3>
+          <p class="project-desc">A cybersecurity platform to detect, scan, and simulate phishing attacks. Implements
+            URL analysis and user interaction tracking. Built using Python and Flask, focusing on web security, threat
+            analysis, and user behavior monitoring.</p>
+          <div class="project-tech">
+            <span>Python</span><span>Flask</span><span>AI/ML</span><span>Cybersecurity</span><span>HTML/CSS</span>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card" data-category="mobile" id="proj-payflex">
+          <div class="project-header">
+            <div class="project-icon" style="background: linear-gradient(135deg, #f093fb, #f5576c)">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Wihem55/Flutter-FinTech-app-for-client-solvency-evaluation-and-payment-management"
+                target="_blank" title="GitHub" id="github-payflex"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">PayFlex – FinTech Mobile App</h3>
+          <p class="project-desc">A mobile application for solvency evaluation and staggered payment analysis.
+            Contributed to feature development, usability improvements, and application testing.</p>
+          <div class="project-tech">
+            <span>Flutter</span><span>Dart</span><span>Firebase</span><span>FinTech</span>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card" data-category="mobile" id="proj-medforyou">
+          <div class="project-header">
+            <div class="project-icon" style="background: linear-gradient(135deg, #4facfe, #00f2fe)">
+              <i class="fas fa-heartbeat"></i>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Wihem55" target="_blank" title="GitHub" id="github-medforyou"><i
+                  class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Med For You – Health Mobile App</h3>
+          <p class="project-desc">Developed features for a mobile health application using Flutter and NestJS.
+            Implemented user-facing functionalities and improved app performance.</p>
+          <div class="project-tech">
+            <span>Flutter</span><span>NestJS</span><span>Node.js</span><span>Healthcare</span>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card" data-category="web" id="proj-gaming">
+          <div class="project-header">
+            <div class="project-icon" style="background: linear-gradient(135deg, #43e97b, #38f9d7)">
+              <i class="fas fa-gamepad"></i>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Wihem55/Gaming-Team-E-Commerce-Platform" target="_blank" title="GitHub"
+                id="github-gaming"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Gaming Team E-Commerce Platform</h3>
+          <p class="project-desc">A modern e-commerce web application for gaming products (PCs, accessories, streaming
+            gear). Features a complete shopping cart, checkout system, and admin dashboard for managing users, products,
+            and orders.</p>
+          <div class="project-tech">
+            <span>PHP</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>MySQL</span>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="project-card" data-category="backend" id="proj-springboot">
+          <div class="project-header">
+            <div class="project-icon" style="background: linear-gradient(135deg, #fa709a, #fee140)">
+              <i class="fas fa-server"></i>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Wihem55" target="_blank" title="GitHub" id="github-springboot"><i
+                  class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Spring Boot CRUD Application</h3>
+          <p class="project-desc">A backend application using Java Spring Boot with database integration. Implemented
+            core CRUD functionalities and REST API logic.</p>
+          <div class="project-tech">
+            <span>Java</span><span>Spring Boot</span><span>SQL</span><span>REST API</span>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="project-card" data-category="security" id="proj-scanner">
+          <div class="project-header">
+            <div class="project-icon" style="background: linear-gradient(135deg, #a18cd1, #fbc2eb)">
+              <i class="fas fa-network-wired"></i>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Wihem55/Network-Scanner" target="_blank" title="GitHub" id="github-scanner"><i
+                  class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Network Scanner</h3>
+          <p class="project-desc">A network scanner that scans any range of IP addresses to retrieve MAC addresses.
+            Written completely in Python, supporting Linux, Windows, and macOS.</p>
+          <div class="project-tech">
+            <span>Python</span><span>Networking</span><span>Security</span><span>Cross-Platform</span>
+          </div>
+        </div>
+
+        <!-- Project 7 -->
+        <div class="project-card" data-category="security" id="proj-rainbow">
+          <div class="project-header">
+            <div class="project-icon" style="background: linear-gradient(135deg, #fd746c, #ff9068)">
+              <i class="fas fa-key"></i>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Wihem55/RainbowTablePoC" target="_blank" title="GitHub" id="github-rainbow"><i
+                  class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Rainbow Table PoC</h3>
+          <p class="project-desc">Proof of Concept for password cracking using Rainbow Tables. Demonstrates hash
+            collision attacks and the importance of salted hashing in secure systems.</p>
+          <div class="project-tech">
+            <span>Python</span><span>Cryptography</span><span>Security</span>
+          </div>
+        </div>
+
+        <!-- Project 8 -->
+        <div class="project-card" data-category="security" id="proj-rsa">
+          <div class="project-header">
+            <div class="project-icon" style="background: linear-gradient(135deg, #30cfd0, #330867)">
+              <i class="fas fa-lock"></i>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Wihem55/Android-App-for-Digital-Signing-with-RSA-Private-Key-" target="_blank"
+                title="GitHub" id="github-rsa"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Android RSA Digital Signing App</h3>
+          <p class="project-desc">Android application for digital document signing using RSA private key encryption.
+            Implements secure key generation and signature verification on mobile.</p>
+          <div class="project-tech">
+            <span>Kotlin</span><span>Android</span><span>RSA</span><span>Cryptography</span>
+          </div>
+        </div>
+
+        <!-- Project 9 -->
+        <div class="project-card" data-category="mobile" id="proj-movie">
+          <div class="project-header">
+            <div class="project-icon" style="background: linear-gradient(135deg, #f7971e, #ffd200)">
+              <i class="fas fa-film"></i>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Wihem55/Movie-Recommendation-System-with-python" target="_blank"
+                title="GitHub" id="github-movie"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Movie Recommendation System</h3>
+          <p class="project-desc">A machine learning-based movie recommendation engine built with Python. Uses
+            collaborative filtering algorithms to suggest personalized movie content.</p>
+          <div class="project-tech">
+            <span>Python</span><span>Jupyter</span><span>ML</span><span>Data Science</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== EDUCATION ==================== -->
+  <section class="section" id="education">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <p class="section-label">Academic Background</p>
+        <h2 class="section-title">My <span class="gradient-text">Education</span></h2>
+      </div>
+      <div class="edu-grid" data-animate>
+
+        <div class="edu-card edu-current">
+          <div class="edu-badge">Current</div>
+          <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+          <div class="edu-content">
+            <h3>Master's Degree in Advanced Cybersecurity Engineering</h3>
+            <h4>Polytechnic University of Bucharest</h4>
+            <div class="edu-meta">
+              <span><i class="fas fa-map-marker-alt"></i> Bucharest, Romania</span>
+              <span><i class="fas fa-layer-group"></i> EQF Level 7</span>
+            </div>
+            <p class="edu-thesis"><strong>Thesis:</strong> AI-Powered Phishing Detection, Scanning and Simulation
+              Platform</p>
+            <ul class="edu-bullets">
+              <li>Network security and system protection</li>
+              <li>Web and mobile application security</li>
+              <li>Penetration testing fundamentals</li>
+              <li>Cybersecurity tools (Kali Linux, Wireshark…)</li>
+              <li>Secure software development</li>
+            </ul>
+            <div class="edu-tags">
+              <span>Cybersecurity Engineering</span>
+              <span>AI/ML Security</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-icon"><i class="fas fa-university"></i></div>
+          <div class="edu-content">
+            <h3>Bachelor's Degree in Business Information Systems</h3>
+            <h4>ESEN – École Supérieure d'Économie Numérique</h4>
+            <div class="edu-meta">
+              <span><i class="fas fa-map-marker-alt"></i> Manouba, Tunisia</span>
+              <span><i class="fas fa-layer-group"></i> EQF Level 6</span>
+            </div>
+            <ul class="edu-bullets">
+              <li>Software development fundamentals</li>
+              <li>Database systems (SQL, PL/SQL)</li>
+              <li>Web development (HTML, CSS, JavaScript, PHP, Java, C, C#)</li>
+              <li>Object-oriented programming</li>
+              <li>Information systems management</li>
+            </ul>
+            <div class="edu-tags">
+              <span>Business Computing</span>
+              <span>Information Systems</span>
+              <span>Software Development</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-icon"><i class="fas fa-school"></i></div>
+          <div class="edu-content">
+            <h3>High School Diploma in Computer Science</h3>
+            <h4>Lycée Ibn Abi Dhiaf</h4>
+            <div class="edu-meta">
+              <span><i class="fas fa-map-marker-alt"></i> Manouba, Tunisia</span>
+              <span><i class="fas fa-layer-group"></i> EQF Level 4</span>
+            </div>
+            <div class="edu-tags">
+              <span>Computer Science</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CERTIFICATIONS ==================== -->
+  <section class="section section-alt" id="certifications">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <p class="section-label">My Credentials</p>
+        <h2 class="section-title">Certifications & <span class="gradient-text">Awards</span></h2>
+      </div>
+      <div class="certs-awards-grid" data-animate>
+        <div class="certs-column">
+          <h3 class="column-title"><i class="fas fa-certificate"></i> Certifications</h3>
+          <div class="cert-list">
+
+            <div class="cert-item" id="cert-azure">
+              <div class="cert-icon"><i class="fas fa-database"></i></div>
+              <div class="cert-info">
+                <span class="cert-name">Azure Synapse SQL</span>
+                <span class="cert-issuer">Coursera &mdash; 2024</span>
+              </div>
+            </div>
+
+            <div class="cert-item" id="cert-agile">
+              <div class="cert-icon"><i class="fas fa-diagram-project"></i></div>
+              <div class="cert-info">
+                <span class="cert-name">Agile Project: Product Prototype &amp; Touchpoint Analysis (Miro)</span>
+                <span class="cert-issuer">Coursera &mdash; 2024</span>
+              </div>
+            </div>
+
+            <div class="cert-item" id="cert-ielts">
+              <div class="cert-icon"><i class="fas fa-language"></i></div>
+              <div class="cert-info">
+                <span class="cert-name">IELTS Academic Certification</span>
+                <span class="cert-issuer">British Council &mdash; 2024</span>
+              </div>
+            </div>
+
+            <div class="cert-item" id="cert-tcf">
+              <div class="cert-icon"><i class="fas fa-flag"></i></div>
+              <div class="cert-info">
+                <span class="cert-name">French Language Certification (TCF)</span>
+                <span class="cert-issuer">French Institute &mdash; 2023</span>
+              </div>
+            </div>
+
+            <div class="cert-item" id="cert-flutter">
+              <div class="cert-icon"><i class="fas fa-mobile-alt"></i></div>
+              <div class="cert-info">
+                <span class="cert-name">NestJS &amp; Flutter Mobile Development</span>
+                <span class="cert-issuer">IT GUST &mdash; 2023</span>
+              </div>
+            </div>
+
+            <div class="cert-item" id="cert-php">
+              <div class="cert-icon"><i class="fab fa-php"></i></div>
+              <div class="cert-info">
+                <span class="cert-name">Programming in PHP</span>
+                <span class="cert-issuer">Sololearn &mdash; 2023</span>
+              </div>
+            </div>
+
+            <div class="cert-item" id="cert-scratch">
+              <div class="cert-icon"><i class="fas fa-gamepad"></i></div>
+              <div class="cert-info">
+                <span class="cert-name">Game Development using Scratch</span>
+                <span class="cert-issuer">Coursera &mdash; 2022</span>
+              </div>
+            </div>
+
+            <div class="cert-item" id="cert-bash">
+              <div class="cert-icon"><i class="fas fa-terminal"></i></div>
+              <div class="cert-info">
+                <span class="cert-name">Introduction to Bash Shell Scripting</span>
+                <span class="cert-issuer">Coursera &mdash; 2022</span>
+              </div>
+            </div>
+
+            <div class="cert-item" id="cert-c">
+              <div class="cert-icon"><i class="fas fa-code"></i></div>
+              <div class="cert-info">
+                <span class="cert-name">Programming in C and C#</span>
+                <span class="cert-issuer">Coursera &mdash; 2022</span>
+              </div>
+            </div>
+
+            <div class="cert-item" id="cert-adobe">
+              <div class="cert-icon"><i class="fas fa-film"></i></div>
+              <div class="cert-info">
+                <span class="cert-name">Adobe Premiere Pro</span>
+                <span class="cert-issuer">Universit&eacute; Libre de Tunis &mdash; 2022</span>
+              </div>
+            </div>
+
+            <div class="cert-item" id="cert-community">
+              <div class="cert-icon"><i class="fas fa-users"></i></div>
+              <div class="cert-info">
+                <span class="cert-name">Community Management</span>
+                <span class="cert-issuer">Universit&eacute; Libre de Tunis &mdash; 2022</span>
+              </div>
+            </div>
+
+            <div class="cert-item" id="cert-marketing">
+              <div class="cert-icon"><i class="fas fa-bullhorn"></i></div>
+              <div class="cert-info">
+                <span class="cert-name">Digital Marketing Certification</span>
+                <span class="cert-issuer">Universit&eacute; Libre de Tunis &mdash; 2022</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="awards-column">
+      <h3 class="column-title"><i class="fas fa-trophy"></i> Honours & Awards</h3>
+      <div class="award-list">
+        <div class="award-item">
+          <div class="award-medal gold"><i class="fas fa-medal"></i></div>
+          <div class="award-info">
+            <span class="award-title">1st Place</span>
+            <span class="award-event">Polytech Hackathon Tunisia</span>
+          </div>
+        </div>
+        <div class="award-item">
+          <div class="award-medal silver"><i class="fas fa-medal"></i></div>
+          <div class="award-info">
+            <span class="award-title">2nd Place</span>
+            <span class="award-event">Startup Weekend</span>
+          </div>
+        </div>
+        <div class="award-item">
+          <div class="award-medal bronze"><i class="fas fa-users"></i></div>
+          <div class="award-info">
+            <span class="award-title">Organizer</span>
+            <span class="award-event">Tech Events</span>
+          </div>
+        </div>
+        <div class="award-item">
+          <div class="award-medal special"><i class="fas fa-basketball-ball"></i></div>
+          <div class="award-info">
+            <span class="award-title">Regional Basketball Player</span>
+            <span class="award-event">Youth House Khaznadar, Tunisia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT ==================== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <p class="section-label">Let's Talk</p>
+        <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
+      </div>
+      <div class="contact-grid" data-animate>
+
+        <div class="contact-info">
+          <p class="contact-intro">Open to <strong>internship</strong> and <strong>entry-level opportunities</strong>
+            across Europe. Feel free to reach out — I'd love to connect!</p>
+          <div class="contact-cards">
+            <a href="mailto:wihemdonix@gmail.com" class="contact-card" id="contact-email">
+              <div class="contact-card-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <div class="contact-card-label">Email</div>
+                <div class="contact-card-value">wihemdonix@gmail.com</div>
+              </div>
+            </a>
+            <a href="tel:+40734568826" class="contact-card" id="contact-phone">
+              <div class="contact-card-icon"><i class="fas fa-phone"></i></div>
+              <div>
+                <div class="contact-card-label">Phone</div>
+                <div class="contact-card-value">+40 734 568 826</div>
+              </div>
+            </a>
+            <div class="contact-card" id="contact-location">
+              <div class="contact-card-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <div class="contact-card-label">Location</div>
+                <div class="contact-card-value">Bucharest, Romania</div>
+              </div>
+            </div>
+            <a href="https://www.linkedin.com/in/wihem-maamer/" target="_blank" class="contact-card"
+              id="contact-linkedin">
+              <div class="contact-card-icon"><i class="fab fa-linkedin-in"></i></div>
+              <div>
+                <div class="contact-card-label">LinkedIn</div>
+                <div class="contact-card-value">wihem-maamer</div>
+              </div>
+            </a>
+            <a href="https://github.com/Wihem55" target="_blank" class="contact-card" id="contact-github">
+              <div class="contact-card-icon"><i class="fab fa-github"></i></div>
+              <div>
+                <div class="contact-card-label">GitHub</div>
+                <div class="contact-card-value">Wihem55</div>
+              </div>
+            </a>
+          </div>
+          <a href="cv.pdf" download class="btn-primary btn-download" id="download-cv-bottom">
+            <i class="fas fa-file-pdf"></i> Download My CV
+          </a>
+        </div>
+
+        <form class="contact-form" id="contact-form" onsubmit="handleFormSubmit(event)">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="John Doe" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Job Opportunity / Collaboration">
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Hi Wihem, I'd like to discuss..."
+              required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" id="submit-contact">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+          <div class="form-success" id="formSuccess" style="display:none">
+            <i class="fas fa-check-circle"></i> Message sent! I'll get back to you soon.
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>Designed & Built with <span class="heart">♥</span> by <strong>Wihem Maamer</strong></p>
+      <div class="footer-socials">
+        <a href="https://github.com/Wihem55" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/wihem-maamer/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="mailto:wihemdonix@gmail.com"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
+
 </html>
